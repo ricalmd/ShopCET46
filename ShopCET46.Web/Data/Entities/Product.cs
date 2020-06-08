@@ -10,7 +10,7 @@ namespace ShopCET46.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [MaxLength(50, ErrorMessage = "The field {0} only can contains {1} characters length.")]
+        [MaxLength(50, ErrorMessage = "The field {0} only can contains {1} characters length. ")]
         [Required]
         public string Name { get; set; }
 
