@@ -6,13 +6,10 @@
 
 <h2>Details</h2>
 
-<div>
+<dd>
     <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
@@ -25,6 +22,12 @@
         <dt>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Url.Content(Model.ImageUrl)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto" />
+            }
+        </dd>
         <dd>
             @Html.DisplayFor(model => model.ImageUrl)
         </dd>
