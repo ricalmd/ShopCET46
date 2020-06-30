@@ -48,14 +48,14 @@ namespace ShopCET46.Prism.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-        public string IsRunning
+        public bool IsRunning
         {
             get => _isRunning;
 
             set => SetProperty(ref _isRunning, value);
         }
 
-        public string IsEnabled
+        public bool IsEnabled
         {
             get => _isEnabled;
 

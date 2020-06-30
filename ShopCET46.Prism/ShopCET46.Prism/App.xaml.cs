@@ -1,9 +1,10 @@
 using Prism;
 using Prism.Ioc;
+using ShopCET46.Common.Services;
 using ShopCET46.Prism.ViewModels;
 using ShopCET46.Prism.Views;
-using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,15 +26,15 @@ namespace ShopCET46.Prism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainLogin");
+            await NavigationService.NavigateAsync("NavigationPage/ProductsPage");
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
-
-            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<IAppInfo, AppInfoImplementation>();
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProductsPage, ProductsPageViewModel>();
         }
     }
 }
