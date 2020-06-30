@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ShopCET46.Web.Data;
 using ShopCET46.Web.Data.Entities;
+using ShopCET46.Web.Helpers;
 
 namespace ShopCET46.Web.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProductRepository _productRepository;
+        private readonly IUserHelper _userHelper;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductRepository productRepository, IUserHelper userHelper)
         {
             _productRepository = productRepository;
+            _userHelper = userHelper;
         }
 
         // GET: Products
@@ -58,6 +61,8 @@ namespace ShopCET46.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                //TODO: Change to the logged user
+                product.User = await _userHelper.GetUserByEmailAsync("ricardo.formando.cinel@gmail.com");
                 await _productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
@@ -91,6 +96,8 @@ namespace ShopCET46.Web.Controllers
             {
                 try
                 {
+                    //TODO: Change to the logged user
+                    product.User = await _userHelper.GetUserByEmailAsync("ricardo.formando.cinel@gmail.com");
                     await _productRepository.UpdateAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)
