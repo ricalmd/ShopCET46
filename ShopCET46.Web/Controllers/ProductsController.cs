@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopCET46.Web.Data;
-using ShopCET46.Web.Data.Entities;
 using ShopCET46.Web.Helpers;
 using ShopCET46.Web.Models;
-using System;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,9 +52,8 @@ namespace ShopCET46.Web.Controllers
             return View(product);
         }
 
-
-
         // GET: Products/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -105,6 +102,7 @@ namespace ShopCET46.Web.Controllers
         }*/
 
         // GET: Products/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -181,6 +179,7 @@ namespace ShopCET46.Web.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
