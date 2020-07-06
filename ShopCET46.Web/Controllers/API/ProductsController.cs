@@ -6,7 +6,6 @@ namespace ShopCET46.Web.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class ProductsController : Controller
     {
         private readonly IProductRepository _productRepository;

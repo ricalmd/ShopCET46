@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account;
-using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
-using ShopCET46.Web.Data.Entities;
-using System;
+﻿using ShopCET46.Web.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

@@ -23,6 +23,12 @@ namespace ShopCET46.Prism.ViewModels
             LoadProductsAsync();
         }
 
+        public List<ProductResponse> Products
+        {
+            get => _products;
+            set => SetProperty(ref _products, value);
+        }
+
         private async void LoadProductsAsync()
         {
             string url = App.Current.Resources["UrlAPI"].ToString();
@@ -36,12 +42,6 @@ namespace ShopCET46.Prism.ViewModels
             }
 
             Products = (List<ProductResponse>)response.Result;
-        }
-
-        public List<ProductResponse> Products
-        {
-            get => _products;
-            set => SetProperty(ref _products, value);
         }
     }
 }

@@ -22,6 +22,26 @@ namespace ShopCET46.Prism.ViewModels
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(Login));
         
+        public string Email { get; set; }
+
+        public bool IsEnabled
+        {
+            get => _isEnabled;
+            set => SetProperty(ref _isEnabled, value);
+        }
+
+        public string Password
+        {
+            get => _password;
+            set => SetProperty(ref _password, value);
+        }
+
+        public bool IsRunning
+        {
+            get => _isRunning;
+            set => SetProperty(ref _isRunning, value);
+        }
+
         private async void Login()
         {
             if (string.IsNullOrEmpty(Email))
@@ -37,29 +57,6 @@ namespace ShopCET46.Prism.ViewModels
             }
 
             await App.Current.MainPage.DisplayAlert("Ok", "Fuck yeah!!!", "Accept");
-        }
-
-        public string Email { get; set; }
-
-        public string Password
-        {
-            get => _password;
-
-            set => SetProperty(ref _password, value);
-        }
-
-        public bool IsRunning
-        {
-            get => _isRunning;
-
-            set => SetProperty(ref _isRunning, value);
-        }
-
-        public bool IsEnabled
-        {
-            get => _isEnabled;
-
-            set => SetProperty(ref _isEnabled, value);
         }
     }
 }

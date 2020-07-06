@@ -29,14 +29,14 @@ namespace ShopCET46.Web.Data
             {
                 user = new User
                 {
-                    FirstName = "Rafael",
-                    LastName = "Santos",
+                    FirstName = "Ricardo",
+                    LastName = "Almeida",
                     Email = "ricardo.formando.cinel@gmail.com",
                     UserName = "ricardo.formando.cinel@gmail.com",
                     PhoneNumber = "123456789"
                 };
 
-                var result = await _userHelper.AddUserAsync(user, "123456");
+                var result = await _userHelper.AddUserAsync(user, "laVai1laVao2?!");
                 if(result != IdentityResult.Success)
                 {
                     throw new InvalidOperationException("Could not create the user in seeder");

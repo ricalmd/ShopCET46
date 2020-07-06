@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ShopCET46.Prism.Views.ProductsPageViewModel"
+             x:Class="ShopCET46.Prism.Views.ProductsPage"
              Title="{Binding Title}">
 
     <StackLayout Padding="5">

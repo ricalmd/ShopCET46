@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShopCET46.Common.Models
+﻿namespace ShopCET46.Common.Models
 {
     public class ProductResponse
     {
