@@ -77,8 +77,7 @@ namespace ShopCET46.Web.Controllers
 
                 var product = _converterHelper.ToProduct(model, path, true);
 
-                //TODO: Change to the logged user
-                product.User = await _userHelper.GetUserByEmailAsync("ricardo.formando.cinel@gmail.com");
+                product.User = await _userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await _productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
@@ -158,8 +157,7 @@ namespace ShopCET46.Web.Controllers
 
                     var product = _converterHelper.ToProduct(model, path, false);
 
-                    //TODO: Change to the logged user
-                    product.User = await _userHelper.GetUserByEmailAsync("ricardo.formando.cinel@gmail.com");
+                    product.User = await _userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                     await _productRepository.UpdateAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)
