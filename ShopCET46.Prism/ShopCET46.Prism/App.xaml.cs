@@ -7,7 +7,6 @@ using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ProductsPageViewModel = ShopCET46.Prism.ViewModels.ProductsPageViewModel;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ShopCET46.Prism

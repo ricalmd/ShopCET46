@@ -10,7 +10,6 @@
 
             <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://shopcet46.azurewebsites.net/</x:String>
-
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

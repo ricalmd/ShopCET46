@@ -2,9 +2,9 @@
 
 namespace ShopCET46.Prism.Views
 {
-    public partial class ProductsPageViewModel : ContentPage
+    public partial class ProductsPage : ContentPage
     {
-        public ProductsPageViewModel()
+        public ProductsPage()
         {
             InitializeComponent();
         }
