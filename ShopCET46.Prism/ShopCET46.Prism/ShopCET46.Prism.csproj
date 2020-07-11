@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.7.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
     <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.2" />
