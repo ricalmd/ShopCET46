@@ -75,7 +75,7 @@ namespace ShopCET46.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterNewUserViewModel model)
         {
-            if (this.ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = await _userHelper.GetUserByEmailAsync(model.UserName);
                 if (user == null)
@@ -319,4 +319,3 @@ namespace ShopCET46.Web.Controllers
         }
     }
 }
-

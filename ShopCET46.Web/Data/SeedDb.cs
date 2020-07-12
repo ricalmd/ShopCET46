@@ -48,7 +48,7 @@ namespace ShopCET46.Web.Data
                     throw new InvalidOperationException("Could not create the user in seeder");
                 }
 
-                var token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+                var token = await _userHelper.GenerateEmailConfirmationTokenAsyc(user);
                 await _userHelper.ConfirmEmailAsync(user, token);
 
                 var isInRole = await _userHelper.IsUserInRoleAsync(user, "Admin");
