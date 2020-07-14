@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShopCET46.Web.Data;
+using ShopCET46.Web.Data.Repositories;
 using ShopCET46.Web.Helpers;
 using ShopCET46.Web.Models;
 using System.Linq;
@@ -157,6 +157,7 @@ namespace ShopCET46.Web.Controllers
 
                     var product = _converterHelper.ToProduct(model, path, false);
 
+                    //TODO: Change to the logged user
                     product.User = await _userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                     await _productRepository.UpdateAsync(product);
                 }

@@ -3,7 +3,7 @@ using ShopCET46.Web.Data.Entities;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShopCET46.Web.Data
+namespace ShopCET46.Web.Data.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
     {
