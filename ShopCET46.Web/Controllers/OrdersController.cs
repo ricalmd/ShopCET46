@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopCET46.Web.Data.Repositories;
 using ShopCET46.Web.Models;
 
 namespace ShopCET46.Web.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IOrderRepository _orderRepository;
@@ -95,6 +98,40 @@ namespace ShopCET46.Web.Controllers
             }
 
             return this.RedirectToAction("Create");
+        }
+
+        public async Task<IActionResult> Deliver(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _orderRepository.GetOrderAsync(id.Value);
+            if(order == null)
+            {
+                return NotFound();
+            }
+
+            var model = new DeliverViewModel
+            {
+                Id = order.Id,
+                DeliveryDate = DateTime.Today
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Deliver(DeliverViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _orderRepository.DeliverOrderAsync(model);
+                return this.RedirectToAction("Index");
+            }
+
+            return View();
         }
     }
 }

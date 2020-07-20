@@ -1,7 +1,6 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopCET46.Web.Data.Entities
 {
@@ -9,6 +8,13 @@ namespace ShopCET46.Web.Data.Entities
     {
         public int Id { get; set; }
 
+        [MaxLength(50, ErrorMessage ="The field {0} only can contain {1} characters.")]
+        [Required]
         public string Name { get; set; }
+
+        public ICollection<City> Cities { get; set; }
+
+        [Display(Name="# Cities")]
+        public int NumberCities { get { return this.Cities == null ? 0 : this.Cities.Count; } }
     }
 }

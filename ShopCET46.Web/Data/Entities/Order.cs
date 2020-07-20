@@ -25,10 +25,10 @@ namespace ShopCET46.Web.Data.Entities
         public IEnumerable<OrderDetail> Items { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N2}")]
-        public double Quantity => this.Items == null ? 0 : this.Items.Sum(i => i.Quantity);
+        public int Lines { get { return this.Items == null ? 0 : this.Items.Count(); } }
 
         [DisplayFormat(DataFormatString = "{0:N2}")]
-        public int Lines { get { return this.Items == null ? 0 : this.Items.Count(); } }
+        public double Quantity => this.Items == null ? 0 : this.Items.Sum(i => i.Quantity);
 
         public decimal Value => this.Items == null ? 0 : this.Items.Sum(i => i.Value);
 

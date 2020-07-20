@@ -177,7 +177,7 @@ namespace ShopCET46.Web.Controllers
                 }
             }
 
-            return this.View(model);
+            return View(model);
         }
 
         public IActionResult ChangePassword()
